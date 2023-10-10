@@ -35,5 +35,6 @@ int main()
             count[1] = 0;
         }
         printf("%d %d %d \n", n1, n2, count[0]);
+        count[0] = count[1] = 0;
     }
 }
