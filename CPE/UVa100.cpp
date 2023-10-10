@@ -3,33 +3,37 @@
 
 int main()
 {
-    int n1, n2;
-    int count = 0, nextcount = 0;
-    scanf("%d %d", &n1, &n2);
-    for (int i = n1; i <= n2; i++)
+    int n1, n2, num;
+    int count[3], nextcount = 0;
+    while (scanf("%d %d", &n1, &n2) != EOF)
     {
-        while (true)
+        for (int i = n1; i <= n2; i++)
         {
-            if (i == 1)
+            num = i;
+            while (true)
             {
-                count += 1;
-                break;
+                if (num == 1)
+                {
+                    count[1] += 1;
+                    break;
+                }
+                if (num % 2 != 0)
+                {
+                    num = (3 * num) + 1;
+                    count[1] += 1;
+                }
+                else
+                {
+                    num /= 2;
+                    count[1] += 1;
+                }
             }
-            if (i % 2 != 0)
+            if (count[1] > count[0])
             {
-                i = 3 * i + 1;
-                count += 1;
+                count[0] = count[1];
             }
-            else
-            {
-                i /= 2;
-                count += 1;
-            }
+            count[1] = 0;
         }
-        if (nextcount > count)
-        {
-            nextcount = count;
-        }
+        printf("%d %d %d \n", n1, n2, count[0]);
     }
-    printf("%d", nextcount);
 }
