@@ -7,8 +7,13 @@ int main()
 {
     char d[1000];
     int n1 = 0, n2 = 0;
-    while (scanf("%s", d) != 0)
+    while (true)
     {
+        scanf("%s", d);
+        if (d[0] == '0')
+        {
+            break;
+        }
         for (int i = 0; i < strlen(d); i += 2)
             n1 += d[i] - '0';
 
