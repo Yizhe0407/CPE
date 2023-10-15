@@ -1,15 +1,29 @@
 // You can say 11
 
 #include <stdio.h>
+#include <string.h>
 
 int main()
 {
-    char d[1000]; // 使用字符数组
+    char d[1000];
+    int n1 = 0, n2 = 0;
+    while (scanf("%s", d) != 0)
+    {
+        for (int i = 0; i < strlen(d); i += 2)
+            n1 += d[i] - '0';
 
-    printf("Enter a character: ");
-    scanf(" %c", &d[0]); // 请注意使用 %c 来读取字符，并且加一个空格来跳过可能的空白字符
+        for (int i = 1; i < strlen(d); i += 2)
+            n2 += d[i] - '0';
 
-    printf("The character you entered is: %c\n", d[0]);
+        if (n1 % 11 == n2 % 11)
+        {
+            printf("%s is a multiple of 11.\n", d);
+        }
+        else
+        {
+            printf("%s is not a multiple of 11.\n", d);
+        }
+    }
 
     return 0;
 }
