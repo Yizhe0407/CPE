@@ -6,10 +6,11 @@
 int main()
 {
     char d[1000];
-    int n1 = 0, n2 = 0;
+    int n1, n2;
     while (true)
     {
         scanf("%s", d);
+        n1 = 0, n2 = 0;
         if (d[0] == '0')
         {
             break;
