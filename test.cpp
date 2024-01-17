@@ -1,31 +1,92 @@
 #include <iostream>
+#include <string.h>
 using namespace std;
+
 int main()
 {
-    string a;
-    int data[256] = {0};
-    char j;
-    int c;
-    cin >> a;
-    for (j = 'a'; j <= 'z'; j++)
+    string bangla;
+    long long int figure = 0, figure1 = 0, i = 1, a;
+    while (cin >> figure && figure != EOF)
     {
-        for (int i = 0; i < a.length(); i++)
+        a = figure;
+        if (i < 10)
+            bangla += "   " + to_string(i) + ".";
+        else if (i >= 10 && i < 100)
+            bangla += "  " + to_string(i) + ".";
+        else if (i >= 100 && i < 1000)
+            bangla += " " + to_string(i) + ".";
+        else
+            bangla += to_string(i) + ".";
+        if (figure == 0)
         {
-            if (a[i] == j)
-                data[j]++;
+            bangla += " 0";
+            cout << bangla << endl;
+            i++;
+            bangla = "";
+            continue;
         }
-    }
-
-    for (int i = a.length(); i >= 0; i--)
-    {
-        for (j = 'a'; j <= 'z'; j++)
+        if (figure == 10000000)
         {
-            if (i == 0)
-                break;
-            if (i == data[j])
-                cout << j << ":" << data[j] << endl;
+            bangla += " 1 kuti";
+            cout << bangla << endl;
+            i++;
+            bangla = "";
+            continue;
         }
-    }
+        if (figure > 10000000)
+        {
+            figure1 = figure % 10000000;
+            figure /= 10000000;
+        }
+        if (figure / 10000000 > 0)
+        {
+            bangla = bangla + ' ' + to_string(figure / 10000000) + " kuti";
+            figure %= 10000000;
+        }
+        if (figure / 100000 > 0)
+        {
+            bangla = bangla + ' ' + to_string(figure / 100000) + " lakh";
+            figure %= 100000;
+        }
+        if (figure / 1000 > 0)
+        {
+            bangla = bangla + ' ' + to_string(figure / 1000) + " hajar";
+            figure %= 1000;
+        }
+        if (figure / 100 > 0)
+        {
+            bangla = bangla + ' ' + to_string(figure / 100) + " shata";
+            figure %= 100;
+        }
+        if (figure < 100 && figure > 0)
+        {
+            bangla = bangla + ' ' + to_string(figure);
+        }
 
-    return 0;
+        if (a >= 10000000)
+        {
+            bangla += " kuti";
+            if (figure1 / 100000 > 0)
+            {
+                bangla = bangla + ' ' + to_string(figure1 / 100000) + " lakh";
+                figure1 %= 100000;
+            }
+            if (figure1 / 1000 > 0)
+            {
+                bangla = bangla + ' ' + to_string(figure1 / 1000) + " hajar";
+                figure1 %= 1000;
+            }
+            if (figure1 / 100 > 0)
+            {
+                bangla = bangla + ' ' + to_string(figure1 / 100) + " shata";
+                figure1 %= 100;
+            }
+            if (figure1 > 0)
+                bangla = bangla + ' ' + to_string(figure1);
+        }
+
+        cout << bangla << endl;
+        i++;
+        bangla = "";
+    }
 }
