@@ -1,35 +1,38 @@
-// primary_Arithmetic
-#include <stdio.h>
-#include <stdlib.h>
 #include <iostream>
 using namespace std;
+
+int count = 0;
+int fun(long long int a, long long int b)
+{
+    count = 0;
+    int carry = 0;
+    while (a != 0 || b != 0)
+    {
+        if ((a % 10 + b % 10 + carry) > 9)
+        {
+            count += 1;
+            carry = 1;
+        }
+        a /= 10;
+        b /= 10;
+    }
+}
+
 int main()
 {
-    long n1, n2;
-    int carry, count, sum;
-    scanf("%ld %ld", &n1, &n2);
-    while (n1 || n2)
+    long long int a, b;
+    while (true)
     {
-        carry=count=0;
-        while(n1 || n2)
-        {
-            sum = n1%10 + n2%10 + carry;
-            carry = sum > 9;
-            count += carry;
-            n1 /= 10;
-            n2 /= 10;
-            
-        }
-        if (count  == 0)
-            printf("No carry operation.\n");
-        else if( count == 1)
-            printf("1 carry operation.\n");
-        else
-            printf("%d carry operations.\n", count);
-        scanf("%ld %ld", &n1, &n2);
-    }
-    if (true){
+        cin >> a >> b;
+        if (a == 0 && b == 0)
+            break;
+        fun(a, b);
 
+        if (count == 1)
+            cout << count << " carry operation." << endl;
+        else if (count > 1)
+            cout << count << " carry operations." << endl;
+        else
+            cout << "No carry operation." << endl;
     }
-    return 0;
 }
