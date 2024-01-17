@@ -1,35 +1,27 @@
-// You can say 11
-
-#include <stdio.h>
+#include <iostream>
 #include <string.h>
+using namespace std;
 
 int main()
 {
-    char d[1000];
-    int n1, n2;
-    while (true)
+    string s;
+    int a, b;
+    while (cin >> s)
     {
-        scanf("%s", d);
-        n1 = 0, n2 = 0;
-        if (d[0] == '0')
-        {
+        a = 0;
+        b = 0;
+        if (s == "0")
             break;
-        }
-        for (int i = 0; i < strlen(d); i += 2)
-            n1 += d[i] - '0';
-
-        for (int i = 1; i < strlen(d); i += 2)
-            n2 += d[i] - '0';
-
-        if (n1 % 11 == n2 % 11)
+        for (int i = 0; i < s.length(); i++)
         {
-            printf("%s is a multiple of 11.\n", d);
+            if (i % 2 == 0)
+                a += s[i] - '0';
+            else
+                b += s[i] - '0';
         }
+        if ((b - a) % 11 == 0)
+            cout << s << " is a multiple of 11." << endl;
         else
-        {
-            printf("%s is not a multiple of 11.\n", d);
-        }
+            cout << s << " is not a multiple of 11." << endl;
     }
-
-    return 0;
 }
