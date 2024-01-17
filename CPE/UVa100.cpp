@@ -1,35 +1,29 @@
-// The 3n + 1 problem
-#include <stdio.h>
+#include <iostream>
+#include <algorithm>
+using namespace std;
 
 int main()
 {
-    int n1, n2, num;
-    int count[3], nextcount = 0;
-    while (scanf("%d %d", &n1, &n2) != EOF)
+    long long int r1, r2;
+    int n, count, max;
+    while (cin >> r1 >> r2)
     {
-        for (int i = n1; i <= n2; i++)
+        max = 0;
+        for (int i = std::min(r1, r2); i <= std::max(r1, r2); i++)
         {
-            num = i;
-            count[1] = 1;
-            while (num != 1)
+            n = i;
+            count = 1;
+            while (n != 1)
             {
-                if (num % 2 != 0)
-                {
-                    num = (3 * num) + 1;
-                }
+                if (n % 2 == 1)
+                    n = (3 * n) + 1;
                 else
-                {
-                    num /= 2;
-                }
-                count[1] += 1;
+                    n /= 2;
+                count += 1;
             }
-            if (count[1] > count[0])
-            {
-                count[0] = count[1];
-            }
+            if (max < count)
+                max = count;
         }
-        printf("%d %d %d \n", n1, n2, count[0]);
-        count[0] = 0;
+        cout << r1 << " " << r2 << " " << max << endl;
     }
-    return 0;
 }
