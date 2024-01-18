@@ -17,7 +17,8 @@ int main()
     for (i = 0; i < n; i++)
     {
         gets(dict[i]);
-        for (j = 0; dict[i][j] != ' '; j++);
+        for (j = 0; dict[i][j] != ' '; j++)
+            ;
         dict[i][j] = '\0';
     }
     qsort(dict, n, 80, comp);
