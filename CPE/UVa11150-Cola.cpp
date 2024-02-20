@@ -3,6 +3,8 @@ using namespace std;
 
 int main()
 {
+    // 公式解
+    // while (cin >> N) cout << N * 3 / 2 << '\n';
     int n, a;
     while (cin >> n)
     {
