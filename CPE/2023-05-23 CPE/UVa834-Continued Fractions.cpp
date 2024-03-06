@@ -10,7 +10,7 @@ int main()
 			printf("[0;%d]\n", b);continue;
 		}
 		else if (b == 1) {
-			printf("[%d;%d]\n", a, a);continue;\
+			printf("[%d;%d]\n", a, a);continue;
 		}
 		bool first = 0;
 		vector<int> v;
