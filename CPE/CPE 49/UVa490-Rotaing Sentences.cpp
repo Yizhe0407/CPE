@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
- 
+
 int main()
 {
     string a,is1[100]={""};//輸入用字串 
@@ -10,16 +10,16 @@ int main()
                      //maxlen計算最長句子長度 
     while(getline(cin,a))//輸入資料 
     {
-    	is1[i]=a;
+        is1[i]=a;
         if(is1[i].length()>maxlen)//取得最長句子的長度 
         {
             maxlen=is1[i].length();
         }
         i++;
     }
-     
+    
     num=i;//紀錄句子數量 
-     
+    
     for(i=0;i<maxlen;i++)//開始翻轉囉 
     {                    //i代表列 
         int gap=0;//計算空白用的 
