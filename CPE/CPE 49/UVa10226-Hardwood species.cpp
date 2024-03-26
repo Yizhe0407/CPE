@@ -1,31 +1,25 @@
 #include <bits/stdc++.h>
-#define f first
-#define s second
 using namespace std;
 
 int main()
 {
 	int n, a;
 	string s;
-	map<string, int> map;
+	
 	cin >> n;
 	cin.ignore();
 	getline(cin, s);
-	for (int j = n; j >= 0; j--)
+	while(n--)
 	{
-		map.clear();
-		s = "";
+		map<string, int> mp;
 		float num = 0; 
 		
-		while(getline(cin, s) && s != "") {
-			map[s]++;
-			num++;
-		}
+		while(getline(cin, s) && s != "") mp[s]++, num++;
 		
-		for (auto &i : map) {
-			float percent = (i.s/num) * 100.0;
-			printf("%s %.4f\n", i.f.c_str(), percent);
+		for (auto i : mp) {
+			float percent = (i.second / num) * 100.0;
+			printf("%s %.4f\n", i.first.c_str(), percent);
 		}
-		if (j > 1) cout << '\n';
+		if (n)cout << '\n'; 
 	}
 }
