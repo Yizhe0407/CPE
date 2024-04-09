@@ -1,5 +1,4 @@
-#include <iostream>
-#include <string.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
@@ -8,10 +7,9 @@ int main()
     int a, b;
     while (cin >> s)
     {
-        a = 0;
-        b = 0;
-        if (s == "0")
-            break;
+        a = 0, b = 0;
+        if (s == "0") break;
+            
         for (int i = 0; i < s.length(); i++)
         {
             if (i % 2 == 0)

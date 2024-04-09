@@ -9,10 +9,10 @@ int main()
     {
         vector<int> v(n);
         vector<int> dict(n * n);
-        for (int i = 0; i < n; i++)cin >> v[i];
+        for (int i = 0; i < n; i++) cin >> v[i];
 
         for (int j = 0; j < n; j++)
-            for (int k = j; k < n; k++)dict[b++] = v[j] + v[k];
+            for (int k = j; k < n; k++) dict[b++] = v[j] + v[k];
 
         for (int j = 0; j < dict.size(); j++)
         {
